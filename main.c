@@ -98,7 +98,7 @@ int main(int argc, char* argv[])
 			}
 			else if(buffer==nbCell-1) // si c'est la dernière, elle n'a pas de cellule à droite
 			{
-				sortie[buffer]=live(cellules[buffer-1],cellules[buffer],0, regle);
+				sortie[buffer]=live(cellules[buffer-1],cellules[buffer],1, regle);
 			}
 			else // sinon elle a deux voisins
 			{
