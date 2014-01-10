@@ -94,11 +94,11 @@ int main(int argc, char* argv[])
 			//opérations
 			if(buffer==0) // si c'est la première cellule, elle n'a pas de cellule à gauche
 			{
-				sortie[buffer]=live(0,cellules[buffer],cellules[buffer+1], regle);
+				sortie[buffer]=live(cellules[nbCell-1],cellules[buffer],cellules[buffer+1], regle);
 			}
 			else if(buffer==nbCell-1) // si c'est la dernière, elle n'a pas de cellule à droite
 			{
-				sortie[buffer]=live(cellules[buffer-1],cellules[buffer],1, regle);
+				sortie[buffer]=live(cellules[buffer-1],cellules[buffer],cellules[0], regle);
 			}
 			else // sinon elle a deux voisins
 			{
@@ -123,62 +123,5 @@ int main(int argc, char* argv[])
 int live(int gauche, int cell, int droite, int regle[]) // fonction qui fait vivre les cellules
 {
 	return regle[(gauche?0:4) + (cell?0:2) + (droite?0:1)] > 0;
-/*	if((gauche && cell) && droite) 
-	{
-		if(regle[0]>0)
-			return 1;
-		else
-			return 0;
-	}
-	if((gauche && cell) && !droite) 
-	{
-		if(regle[1]>0)
-			return 1;
-		else
-			return 0;
-	}
-	if((gauche && !cell) && droite) 
-	{
-		if(regle[2]>0)
-			return 1;
-		else
-			return 0;
-	}
-	if((gauche && !cell) && !droite) 
-	{
-		if(regle[3]>0)
-			return 1;
-		else
-			return 0;
-	}
-	if((!gauche && cell) && droite) 
-	{
-		if(regle[4]>0)
-			return 1;
-		else
-			return 0;
-	}
-	if((!gauche && cell) && !droite) 
-	{
-		if(regle[5]>0)
-			return 1;
-		else
-			return 0;
-	}
-	if((!gauche && !cell) && droite) 
-	{
-		if(regle[6]>0)
-			return 1;
-		else
-			return 0;
-	}
-	
-	if((!gauche && !cell) && !droite) 
-	{
-		if(regle[7]>0)
-			return 1;
-		else
-			return 0;
-	}*/
 }
 
